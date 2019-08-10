@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import CreateNote from './components/Notes/CreateNote';
-import ListNotes from './components/Notes/ListNotes';
+import React from 'react';
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <CreateNote />
-        <ListNotes />
-      </div>
-    );
-  }
-}
+import Main from './components/Main/Main';
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/" component={Main} />
+    </Switch>
+  </Router>
+);
+
 export default App;
