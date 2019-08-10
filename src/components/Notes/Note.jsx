@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { Button, Card } from '@material-ui/core';
+
 class Note extends Component {
 
     handleDelete = (e) => {
@@ -18,12 +20,12 @@ class Note extends Component {
     render() {
         const { note } = this.props;
         return (
-            <div>
+            <Card>
                 <h2>{note.title}</h2>
-                <p>{note.content}</p>
-                <button onClick={this.handleEdit}>Edit</button>
-                <button onClick={this.handleDelete}>Delete</button>
-            </div>
+                <p className="note-content">{note.content}</p>
+                <Button color="primary" type="submit" onClick={this.handleEdit}>Edit</Button>
+                <Button color="secondary" type="submit" onClick={this.handleDelete}>Delete</Button>
+            </Card>
         );
     }
 }

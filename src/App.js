@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// import Main from './components/Main/Main';
-import CreateNote from './components/Notes/CreateNote';
-import ListNotes from './components/Notes/ListNotes';
+import Main from './components/Main/Main';
 
+const App = ({ store }) => (
+  <Provider store={store}>
+    <Router>
+      <Route path="/" component={Main} />
+    </Router>
+  </Provider>
+)
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <CreateNote />
-        <ListNotes />
-      </div>
-    );
-  }
+App.propTypes = {
+  store: PropTypes.object.isRequired
 }
-
 
 export default App;
