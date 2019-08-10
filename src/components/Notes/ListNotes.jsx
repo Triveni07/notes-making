@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import Note from './Note';
 
 class ListNotes extends Component {
     render() {
+        const { notes } = this.props;
+        console.log(this.props);
         return (
             <div>
-                show all notes here
+                List all notes
+                {notes.map(note => <Note key={note.id} note={note} />)}
             </div>
         );
     }
 }
 
-export default ListNotes;
+const mapStateToProps = (state) => {
+    console.log('state', state);
+    return {
+        notes: state
+    }
+}
+export default connect(mapStateToProps)(ListNotes);

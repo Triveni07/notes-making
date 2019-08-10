@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CreateNote extends Component {
-
     handleSubmit = (e) => {
         e.preventDefault();
         const title = this.getTitle.value;
@@ -11,7 +11,14 @@ class CreateNote extends Component {
             title,
             content
         }
-        console.log(noteDetails);
+
+        const { dispatch } = this.props;
+        dispatch({
+            type: 'ADD_NOTE',
+            noteDetails
+        });
+        this.getTitle.value = '';
+        this.getContent.value = '';
     }
 
     render() {
@@ -41,4 +48,4 @@ class CreateNote extends Component {
     }
 }
 
-export default CreateNote;
+export default connect()(CreateNote);
