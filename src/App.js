@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import CreateNote from './components/Notes/CreateNote';
+import ListNotes from './components/Notes/ListNotes';
 
-function App() {
-  return (
-    <div className="App">
-      Note making app
-    </div>
-  );
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <CreateNote />
+        <ListNotes />
+      </div>
+    );
+  }
 }
-
 export default App;
