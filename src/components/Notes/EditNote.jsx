@@ -1,37 +1,31 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 
-class CreateNote extends Component {
-    handleSubmit = (e) => {
+class EditNote extends Component {
+    handleEdit = (e) => {
         e.preventDefault();
-        const title = this.getTitle.value;
-        const content = this.getContent.value;
+        const newTitle = this.getTitle.value;
+        const newContent = this.getContent.value;
         const noteDetails = {
-            id: new Date(),
-            title,
-            content,
-            editing: false
+            newTitle,
+            newContent
         }
-
-        const { dispatch } = this.props;
-        dispatch({
-            type: 'ADD_NOTE',
-            noteDetails
-        });
-        this.getTitle.value = '';
-        this.getContent.value = '';
+        const { dispatch, note } = this.props;
+        dispatch({ type: 'UPDATE', id: note.id, noteDetails: noteDetails })
     }
 
     render() {
+        const { note } = this.props;
         return (
             <div>
-                <h1>Create Note</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleEdit}>
                     <input
                         required
                         type="text"
                         placeholder="Enter note title"
                         ref={(input) => this.getTitle = input}
+                        defaultValue={note.title}
                     />
                     <br /><br />
                     <textarea
@@ -40,13 +34,14 @@ class CreateNote extends Component {
                         cols="28"
                         placeholder="Add notes here.."
                         ref={(input) => this.getContent = input}
+                        defaultValue={note.content}
                     />
                     <br /><br />
-                    <button>Save</button>
+                    <button>Update</button>
                 </form>
             </div>
         );
     }
 }
 
-export default connect()(CreateNote);
+export default connect()(EditNote);
