@@ -28,15 +28,17 @@ class CreateNote extends Component {
             noteDetails
         });
 
-        //const { history } = this.props;
-        // history.push('/');
+        window.alert('Note saved', title);
 
         target.querySelector('#title').value = '';
         target.querySelector('#content').value = '';
 
+
     }
 
     render() {
+        const { note, editing } = this.props;
+        console.log('createNote', note, editing);
         return (
             <div className="notes-container">
                 <div className="notes-box">

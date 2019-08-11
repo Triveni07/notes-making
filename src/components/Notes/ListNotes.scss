@@ -1,6 +1,12 @@
 .list-notes-container {
   display: flex;
   justify-content: center;
+
+  .header h2 {
+    text-align: justify;
+    padding: 8px;
+    margin: 16px;
+  }
 }
 
 .notes-grid {
@@ -19,9 +25,12 @@
     height: 500px;
     background-color: #daf1a3;
     padding: 24px;
+    overflow: auto;
   }
 }
 
-.note {
-  width: 140px;
+.create-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
 }

@@ -26,7 +26,9 @@ class Note extends Component {
                     <p>{note.content}</p>
                 </div>
                 <div className="note-buttons">
-                    <Button color="primary" type="submit" onClick={this.handleEdit}>Edit</Button>
+                    <Button color="primary" type="submit" onClick={this.handleEdit}>
+                        Edit
+                    </Button>
                     <Button color="secondary" type="submit" onClick={this.handleDelete}>Delete</Button>
                 </div>
             </div>

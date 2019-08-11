@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+
 import { TextField, Button, Card } from '@material-ui/core';
 import propTypes from 'prop-types';
+
+import './CreateNote.scss';
 
 class EditNote extends Component {
     handleEdit = (e) => {
@@ -30,34 +33,39 @@ class EditNote extends Component {
         const { note } = this.props;
         return (
             <div className="notes-container">
-                <Card className="notes-box">
-                    <form onSubmit={e => this.handleEdit(e)}>
-                        <TextField
-                            placeholder="Enter note title"
-                            className="field"
-                            id="title"
-                            defaultValue={note.title}
-                            label="title"
-                            variant="outlined"
-                            required
-                            fullWidth
-                        />
-                        <br /><br />
-                        <TextField
-                            placeholder="Add notes here.."
-                            className="field"
-                            id="content"
-                            defaultValue={note.content}
-                            label="description"
-                            variant="outlined"
-                            required
-                            fullWidth
-                            multiline
-                        />
-                        <br /><br />
-                        <Button color="primary" type="submit">Update</Button>
-                    </form>
-                </Card>
+                <div className="notes-box">
+                    <Card className="notes-card">
+                        <form onSubmit={e => this.handleEdit(e)}>
+                            <TextField
+                                placeholder="Title"
+                                className="title"
+                                id="title"
+                                variant="filled"
+                                defaultValue={note.title}
+                                required
+                                fullWidth
+                            />
+                            <br /><br />
+                            <TextField
+                                placeholder="Add notes here..."
+                                className="field"
+                                id="content"
+                                variant="filled"
+                                defaultValue={note.content}
+                                rows={16}
+                                required
+                                fullWidth
+                                multiline
+                            />
+                            <br /><br />
+                            <div className="form-button">
+                                <Button color="primary" type="submit">
+                                    Update
+                                </Button>
+                            </div>
+                        </form>
+                    </Card>
+                </div>
             </div>
         );
     }
