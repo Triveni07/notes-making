@@ -1,0 +1,27 @@
+.list-notes-container {
+  display: flex;
+  justify-content: center;
+}
+
+.notes-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.notes-grid li {
+  padding: 16px 16px;
+
+  .note-item {
+    width: 300px;
+    height: 500px;
+    background-color: #daf1a3;
+    padding: 24px;
+  }
+}
+
+.note {
+  width: 140px;
+}

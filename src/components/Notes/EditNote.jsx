@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
 import { TextField, Button, Card } from '@material-ui/core';
 import propTypes from 'prop-types';
 
@@ -57,9 +56,6 @@ class EditNote extends Component {
                         />
                         <br /><br />
                         <Button color="primary" type="submit">Update</Button>
-                        <Button color="primary" type="submit">
-                            <Link to='/'>Close</Link>
-                        </Button>
                     </form>
                 </Card>
             </div>

@@ -1,5 +1,10 @@
 @import "./variables.scss";
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .content_container {
   min-height: $content-height;
   background: $background;
@@ -13,7 +18,7 @@
   background-size: cover;
   background-position: center;
   filter: blur(5px);
-  outline: 10px solid #222;
+  outline: 5px solid #222;
   position: absolute;
 
   &::after {
@@ -30,6 +35,5 @@
 .content {
   position: absolute;
   width: 100%;
-  height: $content-height;
   overflow: auto;
 }
