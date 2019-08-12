@@ -34,6 +34,7 @@ class ListNotes extends Component {
                                         <EditAndDeleteNote
                                             key={note.id}
                                             note={note}
+                                            showButtons={note.showButtons}
                                         />
                                     }
                                 </div>

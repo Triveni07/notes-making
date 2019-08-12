@@ -3,11 +3,19 @@ export function onSave(e, dispatch) {
     const title = target.querySelector('#title').value;
     const content = target.querySelector('#content').value;
 
+    const timeStamp = new Date().toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+    })
+
     const noteDetails = {
         id: new Date(),
         title,
         content,
-        editing: false
+        editing: false,
+        showButtons: false,
+        timeStamp: timeStamp
     }
 
     dispatch({
@@ -44,4 +52,8 @@ export function onDelete(dispatch, note) {
 
 export function onEdit(dispatch, note) {
     dispatch({ type: 'EDIT_NOTE', id: note.id });
+}
+
+export function onNoteClick(dispatch, note) {
+    dispatch({ type: 'SHOW_NOTE_CARD', id: note.id });
 }

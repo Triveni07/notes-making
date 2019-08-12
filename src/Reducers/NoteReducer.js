@@ -9,6 +9,10 @@ const NoteReducer = (state = [], action) => {
         case 'EDIT_NOTE':
             return state.map((note) => note.id === action.id ? { ...note, editing: !note.editing } : note)
 
+        // To display notes with edit or delete button
+        case 'SHOW_NOTE_CARD':
+            return state.map((note) => note.id === action.id ? { ...note, showButtons: !note.showButtons } : note)
+
         case 'UPDATE':
             return state.map((note) => {
                 if (note.id === action.id) {
