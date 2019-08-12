@@ -5,11 +5,20 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 
+import { onSearchQueryEnter } from './Util/NoteUtil';
+
 import './SearchBox.scss'
 
 class SearchBox extends Component {
-    handleSearch = (e) => {
-        console.log('Search here');
+
+    handleChange = (e) => {
+        e.preventDefault();
+        const { dispatch, notes } = this.props;
+        const query = e.target.value;
+        console.log('query', query);
+        const searchedNotes = onSearchQueryEnter(dispatch, query, notes);
+        console.log('searchedNotes', searchedNotes);
+        this.props.getSearchedNotes(searchedNotes);
     }
 
     render() {
@@ -18,10 +27,15 @@ class SearchBox extends Component {
                 <Paper className="search-paper">
                     <InputBase
                         className="search-input"
+                        id="search-query"
                         placeholder="Search Notes"
                         inputProps={{ 'aria-label': 'search note here' }}
+                        onChange={(e) => this.handleChange(e)}
                     />
-                    <IconButton className="search-iconButton" aria-label="search">
+                    <IconButton
+                        className="search-iconButton"
+                        aria-label="search"
+                        type="submit">
                         <SearchIcon />
                     </IconButton>
                 </Paper>

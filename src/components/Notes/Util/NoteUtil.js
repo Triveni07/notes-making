@@ -26,7 +26,7 @@ export function onSave(e, dispatch) {
     target.querySelector('#title').value = '';
     target.querySelector('#content').value = '';
 
-    window.alert('Hey! Your note saved');
+    // window.alert('Hey! Your note saved');
 }
 
 export function onUpdate(e, dispatch, note) {
@@ -56,4 +56,11 @@ export function onEdit(dispatch, note) {
 
 export function onNoteClick(dispatch, note) {
     dispatch({ type: 'SHOW_NOTE_CARD', id: note.id });
+}
+
+export function onSearchQueryEnter(dispatch, query, notes) {
+    if (query) {
+        const searchedNotes = notes.filter((note) => note.title.includes(query));
+        return searchedNotes;
+    }
 }

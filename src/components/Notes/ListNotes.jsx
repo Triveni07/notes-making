@@ -11,16 +11,36 @@ import SearchBox from './SearchBox';
 import './ListNotes.scss';
 
 class ListNotes extends Component {
+    state = {
+        notes: [],
+        searching: false
+    }
+
+    componentDidMount() {
+        this.setState({ notes: this.props.notes });
+    }
+
+    getSearchedNotes = (searchedNotes) => {
+        console.log('List Notes page', searchedNotes);
+        if (searchedNotes.count !== 0) {
+            this.setState({ notes: searchedNotes, searching: true });
+        }
+    }
+
     render() {
-        const { notes } = this.props;
+        const { searching } = this.state;
+        const { notes } = (searching) ? this.state : this.props;
+
         return (
             <div className="list-notes-container">
                 <div className="list-notes-content">
                     <header className="header">
                         <h2>Notes</h2>
-                        <SearchBox />
+                        <SearchBox
+                            notes={notes}
+                            getSearchedNotes={this.getSearchedNotes}
+                        />
                     </header>
-
                     <ol className='notes-grid'>
                         {notes.map(note =>
                             <li key={note.id} className='note-list-item'>
