@@ -10,7 +10,12 @@
 
     .notes-form {
       padding: 16px;
-      background-color: #daf1a3;
+      background-color: #ffffb7;
+
+      #title {
+        font-size: larger;
+        font-weight: bold;
+      }
 
       #title,
       #content {

@@ -9,12 +9,11 @@ import './Main.scss';
 class Main extends Component {
     render() {
         return (
-            <div className="content_container">
-                <div className="background" />
+            <div className="content-container">
                 <div className="content">
                     <Switch>
                         <Route path='/create' render={({ history }) => (
-                            <CreateNote history={history} />
+                            <CreateNote />
                         )} />
                         <Route path='/' render={({ history }) => (
                             <ListNotes />
