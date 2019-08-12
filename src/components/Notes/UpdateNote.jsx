@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { TextField, Button } from '@material-ui/core';
 
-import { onUpdate } from './Util/NoteUtil.js';
+import { onUpdate } from './../../Util/NoteUtil';
 
-import './CreateNote.scss';
+import '../styles/CreateNote.scss';
 
 class UpdateNote extends Component {
 

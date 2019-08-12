@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
-import { Link } from 'react-router-dom'
-import { TextField, Button, Card } from '@material-ui/core';
+import { Button, Card, TextField } from '@material-ui/core';
 
-import { onSave } from './Util/NoteUtil';
-
-import './CreateNote.scss';
+import { onSave } from './../../Util/NoteUtil';
+import '../styles/CreateNote.scss';
 
 class CreateNote extends Component {
     handleSubmit = (e) => {

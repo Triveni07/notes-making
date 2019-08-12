@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import { Button } from '@material-ui/core';
 
-import { onDelete, onEdit, onNoteClick } from './Util/NoteUtil';
-import './Note.scss';
+import { onDelete, onEdit, onNoteClick } from './../../Util/NoteUtil';
+
+import '../styles/Note.scss';
 
 class Note extends Component {
-
     handleDelete = () => {
         const { dispatch, note } = this.props;
         onDelete(dispatch, note);

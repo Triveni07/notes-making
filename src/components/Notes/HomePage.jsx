@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { Fab, Paper, InputBase } from '@material-ui/core';
+import { Fab, InputBase, Paper } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -10,14 +10,13 @@ import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
 import ListNotes from '../Notes/ListNotes';
+import { onSearchQueryEnter } from './../../Util/NoteUtil';
 
-import { onSearchQueryEnter } from './Util/NoteUtil';
+import '../styles/ListNotes.scss';
+import '../styles/SearchBox.scss';
 
-import './SearchBox.scss'
-import './ListNotes.scss';
 
 class HomePage extends Component {
-
     state = {
         query: ''
     }
@@ -58,10 +57,8 @@ class HomePage extends Component {
                     </div>
                     <ListNotes
                         showingNotesList={showingNotesList}
-
                     />
                 </div>
-
                 <div className="create-button">
                     <Link to='/create'>
                         <Fab color="default" aria-label="add note">
