@@ -61,7 +61,6 @@ export function onNoteClick(dispatch, note) {
 export function onSearchQueryEnter(match, notes) {
     try {
         const searchResults = notes.filter((note) => match.test(note.title));
-        console.log('util', searchResults);
         return searchResults;
     } catch (error) {
         console.err(error);

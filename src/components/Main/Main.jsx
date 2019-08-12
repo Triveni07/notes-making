@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 
 import CreateNote from '../Notes/CreateNote';
-import ListNotes from '../Notes/ListNotes';
+import HomePage from '../Notes/HomePage';
 
 import './Main.scss';
 
@@ -16,7 +16,7 @@ class Main extends Component {
                             <CreateNote />
                         )} />
                         <Route path='/' render={({ history }) => (
-                            <ListNotes />
+                            <HomePage />
                         )} />
                         <Route path="*" render={() => <h1>404</h1>} />
                     </Switch>

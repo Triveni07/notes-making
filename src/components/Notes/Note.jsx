@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 import { onDelete, onEdit, onNoteClick } from './Util/NoteUtil';
 import './Note.scss';
 
-class EditAndDeleteNote extends Component {
+class Note extends Component {
 
     handleDelete = () => {
         const { dispatch, note } = this.props;
@@ -57,4 +57,4 @@ class EditAndDeleteNote extends Component {
     }
 }
 
-export default connect()(EditAndDeleteNote);
+export default connect()(Note);
