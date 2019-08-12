@@ -58,9 +58,12 @@ export function onNoteClick(dispatch, note) {
     dispatch({ type: 'SHOW_NOTE_CARD', id: note.id });
 }
 
-export function onSearchQueryEnter(dispatch, query, notes) {
-    if (query) {
-        const searchedNotes = notes.filter((note) => note.title.includes(query));
-        return searchedNotes;
+export function onSearchQueryEnter(match, notes) {
+    try {
+        const searchResults = notes.filter((note) => match.test(note.title));
+        console.log('util', searchResults);
+        return searchResults;
+    } catch (error) {
+        console.err(error);
     }
 }
