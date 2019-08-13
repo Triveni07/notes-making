@@ -21,10 +21,12 @@ It inlcudes following Features completion:
 1. User visits application Home page on `http://localhost:3000/` 
 2. User is able to create note by clicking on plus(add) icon.
 3. User visits create form and fill in the details of notes such as title, description.
-4. User is able to save the form by clicking on save button.
-5. Once the notes are added to list user can click on close button to get redirected to Home page where user can see list of notes.
-6. User can click on note content in order to edit/delete note.
-7. User can navigate through notes and search using search box.
+4. User gets notified with success and error message on saving note.
+5. User is able to save the form by clicking on save button.
+6. Once the notes are added to list user can click on close button to get redirected to Home page where user can see list of notes.
+7. User can click on note content in order to edit/delete note.
+8. User can navigate through notes and search using search box.
+9. User can see search results notification message on typing search query.
 
 ## Tools and Technologies
 

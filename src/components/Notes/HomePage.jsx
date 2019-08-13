@@ -13,7 +13,7 @@ import ListNotes from '../Notes/ListNotes';
 import { onSearchQueryEnter } from './../../Util/NoteUtil';
 
 import '../styles/ListNotes.scss';
-import '../styles/SearchBox.scss';
+import '../styles/HomePage.scss';
 
 
 class HomePage extends Component {
@@ -23,6 +23,10 @@ class HomePage extends Component {
 
     handleSearch = (query) => {
         this.setState({ query: query.trim() });
+    }
+
+    clearQuery = () => {
+        this.setState({ query: '' });
     }
 
     render() {
@@ -38,8 +42,8 @@ class HomePage extends Component {
         showingNotesList.sort(sortBy('title'));
 
         return (
-            <div className="list-notes-container">
-                <div className="list-notes-content">
+            <div className="home-container">
+                <div className="home-content">
                     <div className="header">
                         <h2>Notes</h2>
                         <div className="search-box">
@@ -55,6 +59,14 @@ class HomePage extends Component {
                             </Paper>
                         </div>
                     </div>
+
+                    {/* To notify user on search results  */}
+                    {showingNotesList.length !== notes.length && (
+                        <div className="showing-notes">
+                            <span>Now showing {showingNotesList.length} of {notes.length} total</span>
+                            <button onClick={this.clearQuery}>Show all</button>
+                        </div>
+                    )}
                     <ListNotes
                         showingNotesList={showingNotesList}
                     />

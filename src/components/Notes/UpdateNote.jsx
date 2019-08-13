@@ -5,7 +5,7 @@ import { TextField, Button } from '@material-ui/core';
 
 import { onUpdate } from './../../Util/NoteUtil';
 
-import '../styles/CreateNote.scss';
+import '../styles/Note.scss';
 
 class UpdateNote extends Component {
 

@@ -8,7 +8,6 @@ export function onSave(e, dispatch) {
         month: 'short',
         year: 'numeric'
     })
-
     const noteDetails = {
         id: new Date(),
         title,
@@ -17,28 +16,23 @@ export function onSave(e, dispatch) {
         showButtons: false,
         timeStamp: timeStamp
     }
+    target.querySelector('#title').value = '';
+    target.querySelector('#content').value = '';
 
     dispatch({
         type: 'ADD_NOTE',
         noteDetails
     });
-
-    target.querySelector('#title').value = '';
-    target.querySelector('#content').value = '';
-
-    // window.alert('Hey! Your note saved');
 }
 
 export function onUpdate(e, dispatch, note) {
     const { target } = e;
     const newTitle = target.querySelector('#title').value;
     const newContent = target.querySelector('#content').value;
-
     const noteDetails = {
         newTitle,
         newContent
     }
-
     dispatch({
         type: 'UPDATE',
         id: note.id,

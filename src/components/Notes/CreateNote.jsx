@@ -8,16 +8,47 @@ import { onSave } from './../../Util/NoteUtil';
 import '../styles/CreateNote.scss';
 
 class CreateNote extends Component {
+    state = {
+        saved: ''
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const { dispatch } = this.props;
-        onSave(e, dispatch);
+        try {
+            onSave(e, dispatch);
+            this.setState({ saved: 'success' });
+        } catch (err) {
+            this.setState({ saved: 'error' });
+            console.error(err);
+        }
+    }
+    handleOnchange = () => {
+        this.setState({ saved: '' });
     }
 
     render() {
+        const { saved } = this.state;
+
+        // To notify user on note saving 
+        let messageDiv;
+        if (saved === 'success') {
+            messageDiv = <div className="success-message">
+                <i className="fa fa-check" aria-hidden="true"></i>
+                <span>Success!</span>
+            </div>
+        } else if (saved === 'error') {
+            messageDiv = <div className="error-message">
+                <i className="fa fa-times-circle" aria-hidden="true"></i>
+                <span>Error!</span>
+            </div>
+        }
+
         return (
             <div className="notes-container">
                 <div className="notes-box">
+                    <div className="message">
+                        {messageDiv}
+                    </div>
                     <Card className="notes-card">
                         <form onSubmit={e => this.handleSubmit(e)} className="notes-form">
                             <TextField
@@ -26,6 +57,7 @@ class CreateNote extends Component {
                                 variant="outlined"
                                 required
                                 fullWidth
+                                onChange={this.handleOnchange}
                             />
                             <br /><br />
                             <TextField
@@ -47,7 +79,7 @@ class CreateNote extends Component {
                         </form>
                     </Card>
                 </div>
-            </div>
+            </div >
         );
     }
 }

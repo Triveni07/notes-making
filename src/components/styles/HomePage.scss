@@ -1,0 +1,51 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  color: rgb(8, 8, 153);
+  font-family: sans-serif;
+
+  .header h2 {
+    text-align: center;
+    padding: 8px;
+    margin: 16px;
+  }
+
+  .search-box {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+
+    .search-paper {
+      padding: 0 8px 0 8px;
+      display: flex;
+      align-items: center;
+      width: 250px;
+
+      .search-input {
+        margin: 8px;
+        flex: 1;
+      }
+    }
+  }
+
+  .showing-notes {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .showing-notes > button {
+    color: inherit;
+    margin: 8px;
+    padding: 0;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+  }
+
+  .create-button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+  }
+}

@@ -25,12 +25,10 @@ class Note extends Component {
 
     render() {
         const { note, showButtons } = this.props;
-        const timeStamp = note.timeStamp;
         return (
             <div id="note-card">
                 <div className="note-buttons">
-                    {showButtons
-                        ?
+                    {showButtons ?
                         <>
                             <Button
                                 color="primary"
@@ -45,7 +43,7 @@ class Note extends Component {
                                 Delete
                             </Button>
                         </>
-                        : <div className="timeStamp">{timeStamp}</div>
+                        : <div className="timeStamp">{note.timeStamp}</div>
                     }
                 </div>
                 <div className="note-content" onClick={this.handleNoteClick}>
