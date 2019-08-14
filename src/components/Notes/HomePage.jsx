@@ -6,22 +6,25 @@ import { Fab, InputBase, Paper } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
-import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
 import ListNotes from '../Notes/ListNotes';
 import { onSearchQueryEnter } from './../../Util/NoteUtil';
-
 import '../styles/ListNotes.scss';
 import '../styles/HomePage.scss';
 
-
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     state = {
         query: ''
     }
 
-    handleSearch = (query) => {
+    handleSearch = (e) => {
+        const query = e.target.value;
         this.setState({ query: query.trim() });
     }
 
@@ -35,10 +38,8 @@ class HomePage extends Component {
 
         let showingNotesList;
         if (query) {
-            const match = new RegExp(escapeRegExp(query), 'i')
-            showingNotesList = onSearchQueryEnter(match, notes);
+            showingNotesList = onSearchQueryEnter(query, notes);
         } else showingNotesList = notes;
-
         showingNotesList.sort(sortBy('title'));
 
         return (
@@ -52,14 +53,13 @@ class HomePage extends Component {
                                 <InputBase
                                     className="search-input"
                                     id="search-query"
-                                    placeholder="Search Notes"
+                                    placeholder="Search notes here..."
                                     value={query}
-                                    onChange={(e) => this.handleSearch(e.target.value)}
+                                    onChange={(e) => this.handleSearch(e)}
                                 />
                             </Paper>
                         </div>
                     </div>
-
                     {/* To notify user on search results  */}
                     {showingNotesList.length !== notes.length && (
                         <div className="showing-notes">

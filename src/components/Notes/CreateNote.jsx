@@ -8,9 +8,15 @@ import { onSave } from './../../Util/NoteUtil';
 import '../styles/CreateNote.scss';
 
 class CreateNote extends Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     state = {
         saved: ''
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { dispatch } = this.props;
@@ -22,6 +28,7 @@ class CreateNote extends Component {
             console.error(err);
         }
     }
+
     handleOnchange = () => {
         this.setState({ saved: '' });
     }

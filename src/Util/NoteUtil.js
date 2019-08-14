@@ -1,4 +1,6 @@
-export function onSave(e, dispatch) {
+import escapeRegExp from 'escape-string-regexp';
+
+const onSave = (e, dispatch) => {
     const { target } = e;
     const title = target.querySelector('#title').value;
     const content = target.querySelector('#content').value;
@@ -16,6 +18,7 @@ export function onSave(e, dispatch) {
         showButtons: false,
         timeStamp: timeStamp
     }
+
     target.querySelector('#title').value = '';
     target.querySelector('#content').value = '';
 
@@ -25,7 +28,7 @@ export function onSave(e, dispatch) {
     });
 }
 
-export function onUpdate(e, dispatch, note) {
+const onUpdate = (e, dispatch, note) => {
     const { target } = e;
     const newTitle = target.querySelector('#title').value;
     const newContent = target.querySelector('#content').value;
@@ -40,19 +43,20 @@ export function onUpdate(e, dispatch, note) {
     })
 }
 
-export function onDelete(dispatch, note) {
+const onDelete = (dispatch, note) => {
     dispatch({ type: 'DELETE_NOTE', id: note.id });
 }
 
-export function onEdit(dispatch, note) {
+const onEdit = (dispatch, note) => {
     dispatch({ type: 'EDIT_NOTE', id: note.id });
 }
 
-export function onNoteClick(dispatch, note) {
+const onNoteClick = (dispatch, note) => {
     dispatch({ type: 'SHOW_NOTE_CARD', id: note.id });
 }
 
-export function onSearchQueryEnter(match, notes) {
+const onSearchQueryEnter = (query, notes) => {
+    const match = new RegExp(escapeRegExp(query), 'i')
     try {
         const searchResults = notes.filter((note) => match.test(note.title));
         return searchResults;
@@ -60,3 +64,5 @@ export function onSearchQueryEnter(match, notes) {
         console.err(error);
     }
 }
+
+export { onSave, onUpdate, onEdit, onDelete, onNoteClick, onSearchQueryEnter };
