@@ -21,14 +21,8 @@ const onSave = (input, dispatch) => {
     });
 }
 
-const onUpdate = (e, dispatch, note) => {
-    const { target } = e;
-    const newTitle = target.querySelector('#title').value;
-    const newContent = target.querySelector('#content').value;
-    const noteDetails = {
-        newTitle,
-        newContent
-    }
+const onUpdate = (inputForUpdate, dispatch, note) => {
+    const noteDetails = inputForUpdate;
     dispatch({
         type: 'UPDATE',
         id: note.id,
@@ -51,11 +45,19 @@ const onNoteClick = (dispatch, note) => {
 const onSearchQueryEnter = (query, notes) => {
     const match = new RegExp(escapeRegExp(query), 'i')
     try {
-        const searchResults = notes.filter((note) => match.test(note.title));
+        const searchResults = notes.filter((note) => match
+            .test(`${note.title}${note.content}`));
         return searchResults;
     } catch (error) {
         console.err(error);
     }
 }
 
-export { onSave, onUpdate, onEdit, onDelete, onNoteClick, onSearchQueryEnter };
+export {
+    onSave,
+    onUpdate,
+    onEdit,
+    onDelete,
+    onNoteClick,
+    onSearchQueryEnter
+};

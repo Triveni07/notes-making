@@ -11,7 +11,11 @@ const UpdateNote = (props) => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        onUpdate(e, dispatch, note);
+        const { target } = e;
+        const newTitle = target.querySelector('#title').value;
+        const newContent = target.querySelector('#content').value;
+        const inputForUpdate = { newTitle, newContent };
+        onUpdate(inputForUpdate, dispatch, note);
     }
 
     return (
