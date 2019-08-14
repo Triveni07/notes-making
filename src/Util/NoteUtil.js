@@ -1,10 +1,6 @@
 import escapeRegExp from 'escape-string-regexp';
 
-const onSave = (e, dispatch) => {
-    const { target } = e;
-    const title = target.querySelector('#title').value;
-    const content = target.querySelector('#content').value;
-
+const onSave = (input, dispatch) => {
     const timeStamp = new Date().toLocaleDateString('en-GB', {
         day: 'numeric',
         month: 'short',
@@ -12,16 +8,13 @@ const onSave = (e, dispatch) => {
     })
     const noteDetails = {
         id: new Date(),
-        title,
-        content,
+        title: input.title,
+        content: input.content,
         editing: false,
         showButtons: false,
         timeStamp: timeStamp
     }
-
-    target.querySelector('#title').value = '';
-    target.querySelector('#content').value = '';
-
+    input = {};
     dispatch({
         type: 'ADD_NOTE',
         noteDetails
