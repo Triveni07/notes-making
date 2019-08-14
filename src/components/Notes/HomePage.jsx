@@ -69,6 +69,7 @@ class HomePage extends Component {
                     )}
                     <ListNotes
                         showingNotesList={showingNotesList}
+                        notesLength={notes.length}
                     />
                 </div>
                 <div className="create-button">
