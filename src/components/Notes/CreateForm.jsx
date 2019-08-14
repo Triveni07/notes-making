@@ -14,6 +14,8 @@ const CreateForm = (props) => {
         const formInput = { title, content };
 
         handleSubmit(formInput);
+        target.querySelector('#title').value = '';
+        target.querySelector('#content').value = '';
     }
     const handleTitleInput = () => {
         handleOnChange();

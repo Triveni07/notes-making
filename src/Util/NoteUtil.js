@@ -14,7 +14,7 @@ const onSave = (input, dispatch) => {
         showButtons: false,
         timeStamp: timeStamp
     }
-    input = {};
+
     dispatch({
         type: 'ADD_NOTE',
         noteDetails
