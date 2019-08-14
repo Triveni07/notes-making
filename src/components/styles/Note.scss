@@ -1,8 +1,14 @@
+@import "./variables.scss";
+
 .note-content {
   cursor: pointer;
 }
 
 .timeStamp {
   font-size: small;
-  color: grey;
+  color: $color-grey;
+}
+
+.note-buttons {
+  padding: 4px;
 }

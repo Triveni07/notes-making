@@ -1,25 +1,33 @@
 import React from 'react';
 
 const Notification = (props) => {
-    const { formSaved } = props;
+    const { messageType } = props;
 
+    // Add message notifications eg. success, error, warning, info etc. 
     let messageDiv;
-    if (formSaved === 'success') {
-        messageDiv = <div className="success-message">
-            <i className="fa fa-check" aria-hidden="true"></i>
-            <span>Success!</span>
-        </div>
-    } else if (formSaved === 'error') {
-        messageDiv = <div className="error-message">
-            <i className="fa fa-times-circle" aria-hidden="true"></i>
-            <span>Error!</span>
-        </div>
+    switch (messageType) {
+        case 'success':
+            messageDiv = <div className="success-message">
+                <i className="fa fa-check" aria-hidden="true"></i>
+                <span>Note added!</span>
+            </div>
+            break;
+
+        case 'error':
+            messageDiv = <div className="error-message">
+                <i className="fa fa-times-circle" aria-hidden="true"></i>
+                <span>There was an error!</span>
+            </div>
+            break;
+
+        default:
+            break;
     }
 
     return (
-        <div>
+        <>
             {messageDiv}
-        </div>
+        </>
     );
 }
 

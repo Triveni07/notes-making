@@ -1,7 +1,9 @@
+@import "./variables.scss";
+
 .home-container {
   display: flex;
   justify-content: center;
-  color: rgb(8, 8, 153);
+  color: $color-blue;
   font-family: sans-serif;
 
   .header h2 {

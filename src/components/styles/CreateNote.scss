@@ -1,4 +1,5 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+@import "./variables.scss";
 
 .notes-container {
   margin: 24px;
@@ -12,7 +13,7 @@
 
     .notes-form {
       padding: 16px;
-      background-color: #ffffb7;
+      background-color: $background-form-color;
 
       #title {
         font-size: larger;
@@ -21,7 +22,7 @@
 
       #title,
       #content {
-        color: rgb(8, 8, 153);
+        color: $color-blue;
         overflow: hidden;
       }
 
@@ -41,13 +42,13 @@
     }
 
     .success-message {
-      background-color: #dff2bf;
-      color: #270;
+      background-color: $success-bar;
+      color: $color-green;
     }
 
     .error-message {
-      color: #d8000c;
-      background-color: #ffbaba;
+      color: $color-red;
+      background-color: $error-bar;
     }
   }
 }

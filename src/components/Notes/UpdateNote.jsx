@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { TextField, Button } from '@material-ui/core';
+import UpdateIcon from '@material-ui/icons/Update';
 
 import { onUpdate } from './../../Util/NoteUtil'
 import '../styles/Note.scss';
@@ -23,10 +24,10 @@ const UpdateNote = (props) => {
             <form onSubmit={e => handleUpdate(e)} className="notes-form">
                 <div className="note-buttons">
                     <Button
-                        color="primary"
+                        color="default"
                         type="submit">
-                        Update
-                        </Button>
+                        <UpdateIcon />
+                    </Button>
                 </div>
                 <div className="note-content">
                     <TextField

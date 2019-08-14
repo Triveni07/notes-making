@@ -33,7 +33,7 @@ class CreateNote extends PureComponent {
                 <div className="notes-box">
                     <div className="message">
                         {/* To notify user on note saving */}
-                        <Notification formSaved={saved} />
+                        <Notification messageType={saved} />
                     </div>
                     <CreateForm
                         handleSubmit={this.handleSubmit}

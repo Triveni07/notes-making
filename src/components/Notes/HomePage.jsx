@@ -17,10 +17,13 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-    }
 
-    state = {
-        query: ''
+        this.state = {
+            query: ''
+        }
+
+        this.handleSearch = this.handleSearch.bind(this);
+        this.clearQuery = this.clearQuery.bind(this);
     }
 
     handleSearch = (e) => {
@@ -74,7 +77,7 @@ class HomePage extends Component {
                 </div>
                 <div className="create-button">
                     <Link to='/create'>
-                        <Fab color="default" aria-label="add note">
+                        <Fab color="primary" aria-label="add note">
                             <AddIcon />
                         </Fab>
                     </Link>
