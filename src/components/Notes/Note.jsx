@@ -11,7 +11,6 @@ import '../styles/Note.scss';
 
 const Note = (props) => {
     const { dispatch, note, showButtons } = props;
-    console.log(note);
 
     const handleDelete = () => {
         onDelete(dispatch, note);
@@ -22,6 +21,7 @@ const Note = (props) => {
     const handleNoteClick = () => {
         onNoteClick(dispatch, note);
     }
+
     return (
         <div id="note-card">
             <div className="note-buttons">

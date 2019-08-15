@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import CreateNote from '../Notes/CreateNote';
 import HomePage from '../Notes/HomePage';
+import ErrorBoundary from '../Notes/ErrorBoundary';
 
 import './Main.scss';
 
@@ -12,10 +13,14 @@ class Main extends Component {
             <div className="main-container">
                 <Switch>
                     <Route path='/create' render={({ history }) => (
-                        <CreateNote />
+                        <ErrorBoundary>
+                            <CreateNote />
+                        </ErrorBoundary>
                     )} />
                     <Route path='/' render={({ history }) => (
-                        <HomePage />
+                        <ErrorBoundary>
+                            <HomePage />
+                        </ErrorBoundary>
                     )} />
                     <Route path="*" render={() => <h1>404</h1>} />
                 </Switch>

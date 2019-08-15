@@ -1,5 +1,5 @@
 import escapeRegExp from 'escape-string-regexp';
-const uuidv4 = require('uuid/v4'); // ⇨ '10ba038e-48da-487b-96e8-8d3b99b6d18a'
+const uuidv4 = require('uuid/v4');
 
 const onSave = (input, dispatch) => {
     const timeStamp = new Date().toLocaleString(undefined, {
@@ -40,7 +40,7 @@ const onUpdate = (inputForUpdate, dispatch, note) => {
         id: note.id,
         timeStamp: timeStamp,
         noteDetails: newNoteDetails
-    })
+    });
 }
 
 const onDelete = (dispatch, note) => {
