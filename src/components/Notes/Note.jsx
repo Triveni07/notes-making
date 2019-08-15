@@ -54,7 +54,7 @@ const Note = (props) => {
 Note.propTypes = {
     dispatch: PropTypes.func.isRequired,
     note: PropTypes.shape({
-        id: PropTypes.instanceOf(Date),
+        id: PropTypes.any,
         title: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         editing: PropTypes.bool,
