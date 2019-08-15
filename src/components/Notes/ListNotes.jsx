@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 import UpdateNote from './UpdateNote';
 import Note from './Note';
@@ -40,5 +41,11 @@ const ListNotes = (props) => {
         </div>
     );
 }
+
+ListNotes.propTypes = {
+    showingNotesList: PropTypes.array.isRequired,
+    notesLength: PropTypes.number.isRequired
+};
+
 
 export default ListNotes;

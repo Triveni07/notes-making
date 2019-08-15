@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import { TextField, Button } from '@material-ui/core';
 import UpdateIcon from '@material-ui/icons/Update';
@@ -54,5 +55,17 @@ const UpdateNote = (props) => {
         </div>
     );
 }
+
+UpdateNote.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    note: PropTypes.shape({
+        id: PropTypes.instanceOf(Date),
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        editing: PropTypes.bool,
+        showButtons: PropTypes.bool,
+        timeStamp: PropTypes.string
+    })
+};
 
 export default connect()(UpdateNote);

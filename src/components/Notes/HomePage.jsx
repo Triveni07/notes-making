@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import { Fab, InputBase, Paper } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
@@ -86,6 +87,10 @@ class HomePage extends Component {
         );
     }
 }
+
+HomePage.propTypes = {
+    notes: PropTypes.array.isRequired
+};
 
 const mapStateToProps = (state) => {
     return {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { Button, Card, TextField } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
@@ -59,5 +60,11 @@ const CreateForm = (props) => {
         </Card>
     );
 }
+
+
+CreateForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    handleOnChange: PropTypes.func.isRequired
+};
 
 export default CreateForm;

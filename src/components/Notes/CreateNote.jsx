@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import { onSave } from './../../Util/NoteUtil';
 import CreateForm from './CreateForm';
@@ -44,5 +45,9 @@ class CreateNote extends PureComponent {
         );
     }
 }
+
+CreateNote.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+};
 
 export default connect()(CreateNote);

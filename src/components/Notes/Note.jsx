@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import { Button } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
@@ -10,6 +11,7 @@ import '../styles/Note.scss';
 
 const Note = (props) => {
     const { dispatch, note, showButtons } = props;
+    console.log(note);
 
     const handleDelete = () => {
         onDelete(dispatch, note);
@@ -48,5 +50,17 @@ const Note = (props) => {
         </div>
     );
 }
+
+Note.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    note: PropTypes.shape({
+        id: PropTypes.instanceOf(Date),
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        editing: PropTypes.bool,
+        showButtons: PropTypes.bool,
+        timeStamp: PropTypes.string
+    })
+};
 
 export default connect()(Note);
