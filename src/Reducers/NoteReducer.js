@@ -20,6 +20,7 @@ const NoteReducer = (state = [], action) => {
                         ...note,
                         title: action.noteDetails.newTitle,
                         content: action.noteDetails.newContent,
+                        timeStamp: action.timeStamp,
                         editing: !note.editing
                     }
                 } else return note;
