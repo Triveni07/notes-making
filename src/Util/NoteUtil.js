@@ -41,6 +41,9 @@ const onUpdate = (inputForUpdate, dispatch, note) => {
         timeStamp: timeStamp,
         noteDetails: newNoteDetails
     });
+
+    // dispatch action to hide edit and delete button on update
+    dispatch({ type: 'SHOW_NOTE_CARD', id: note.id });
 }
 
 const onDelete = (dispatch, note) => {
