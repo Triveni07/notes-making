@@ -25,7 +25,7 @@ It inlcudes following Features completion:
 5. User is able to save the form by clicking on save button.
 6. Once the notes are added to list user can click on close button to get redirected to Home page where user can see list of notes.
 7. User can click on note content in order to edit/delete note.
-8. User can navigate through notes and search using search box.
+8. User can navigate through sorted notes and search using search box.
 9. User can see search results notification message on typing search query.
 
 ## Tools and Technologies
