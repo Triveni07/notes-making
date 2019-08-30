@@ -1,22 +1,21 @@
 import escapeRegExp from 'escape-string-regexp';
 const uuidv4 = require('uuid/v4');
 
+const timeStamp = () => new Date().toLocaleString(undefined, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+})
 const onSave = (input, dispatch) => {
-    const timeStamp = new Date().toLocaleString(undefined, {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-    })
-
     const noteDetails = {
         id: uuidv4(),
         title: input.title,
         content: input.content,
         editing: false,
         showButtons: false,
-        timeStamp: timeStamp
+        timeStamp: timeStamp()
     }
 
     dispatch({
@@ -27,18 +26,12 @@ const onSave = (input, dispatch) => {
 
 const onUpdate = (inputForUpdate, dispatch, note) => {
     const newNoteDetails = inputForUpdate;
-    const timeStamp = new Date().toLocaleString(undefined, {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-    })
+    const newTime = timeStamp();
 
     dispatch({
         type: 'UPDATE',
         id: note.id,
-        timeStamp: timeStamp,
+        timeStamp: newTime,
         noteDetails: newNoteDetails
     });
 
